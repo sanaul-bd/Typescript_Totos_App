@@ -79,3 +79,19 @@ button:focus-visible {
   background-color: rgb(247, 220,187);
   padding : 0.5rem;
 }
+
+.title-class{
+  padding: 1rem;
+}
+.titleBtn{
+  padding-left: 1rem;
+  margin-left: .5rem;
+}
+.title-input{
+  padding: 5px;
+}
+.form-input{
+  border: 1px solid black;
+  padding: 6px;
+  margin: 0 9px;
+}

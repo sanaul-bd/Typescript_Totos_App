@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react'
 import Todos from './components/Todos'
+import AddTodo from './components/AddTodo'
+import type { TodoType } from './types'
 
 // dammi data 
 const todosData = [
@@ -20,22 +22,6 @@ const todosData = [
     id: "4",
     title: "Todo Title 4"
   },
-  {
-    id: "5",
-    title: "Todo Title 5"
-  },
-  {
-    id: "6",
-    title: "Todo Title 6"
-  },
-  {
-    id: "7",
-    title: "Todo Title 7"
-  },
-  {
-    id: "8",
-    title: "Todo Title 8"
-  },
 ]
 
 // console.log(todosData);
@@ -45,9 +31,25 @@ const todosData = [
 const App = () => {
   const [todos, setTodos] = useState(todosData)
   // console.log(todos);
+  const handleDleeteTodo = (id: string ) => {
+    console.log(id);
+    const filterdData = todos.filter(todo => todo.id !== id);
+    setTodos(filterdData)
+  }
+
+  const handleAddNewTodo = (newTodo: { id: string ; title: string }) => {
+    console.log(newTodo);
+    setTodos((prevstate) => [...prevstate, newTodo]);
+  }
+
+
   return (
     <div>
-      <Todos todos={todos} ></Todos>
+      <AddTodo handleAddNewTodo={handleAddNewTodo} />
+      <Todos
+        todos={todos}
+        handleDleeteTodo={handleDleeteTodo}
+      ></Todos>
     </div>
   )
 }
